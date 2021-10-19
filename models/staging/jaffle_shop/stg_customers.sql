@@ -3,4 +3,6 @@
         first_name,
         last_name
 
-    from `rare-palace-329321.jaffle_shop.customers`
+    from {{ source('jaffle_shop','customers') }}
+
+ 

@@ -1,0 +1,13 @@
+version: 2
+
+sources:
+- name: jaffle_shop
+  database: rare-palace-329321
+  tables:
+    - name: customers
+    - name: orders
+
+- name: stripe
+  database: rare-palace-329321
+  tables:
+    - name: payment

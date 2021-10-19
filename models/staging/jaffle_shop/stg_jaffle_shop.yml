@@ -1,6 +1,12 @@
 version: 2
 
 models:
+ - name: stg_payments
+   description: Record of all payments and refunds made
+   columns:
+      - name: amount
+        description: dollar amount of transaction. Negative indicates refund
+
  - name: stg_customers
    columns:
       - name: customer_id
@@ -10,7 +16,10 @@ models:
 
  - name: stg_orders
    columns: 
+   - name: order_id
+     description: Primary key for orders.
    - name: status
+     description: '{{ doc("order_status") }}'
      tests:
      - accepted_values:
         values:
@@ -19,3 +28,12 @@ models:
          - returned
          - placed
          - return_pending
+   - name: order_date
+     description: Date order was placed on website
+
+   - name: customer_id
+     description: Foreign key to stg_customers.customer_id.
+     tests:
+     - relationships:
+        to: ref('stg_customers')
+        field: customer_id

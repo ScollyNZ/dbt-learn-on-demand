@@ -6,5 +6,5 @@ select
     AMOUNT/100 as amount,
     CREATED as created
 
-from `rare-palace-329321.stripe.payment`
+from {{ source('stripe','payment')}}
 
