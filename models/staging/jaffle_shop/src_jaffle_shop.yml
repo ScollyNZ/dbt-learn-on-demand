@@ -2,12 +2,14 @@ version: 2
 
 sources:
 - name: jaffle_shop
+  description: jaffle shop source tables
   database: rare-palace-329321
   tables:
     - name: customers
     - name: orders
 
 - name: stripe
+  description: payment details from stripe system
   database: rare-palace-329321
   tables:
     - name: payment
